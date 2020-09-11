@@ -1,0 +1,22 @@
+{
+  "name": "curriculos_api",
+  "version": "1.0.0",
+  "description": "Esta api busca facilitar a inscrição de cadidatos em processos seletivos e cadastro em sites de emprego fornecendo informações de forma automática.",
+  "main": "./bin/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/nodemon/bin/nodemon.js ./bin/server.js"
+  },
+  "keywords": [],
+  "author": "Adaão R. Mascarelli",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "mongoose": "^5.10.2"
+  }
+}
