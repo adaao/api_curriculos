@@ -125,6 +125,8 @@ const candidate_schema = new Schema({
    education: [education_schema],
    websites_and_social_links: [links_schema],
    courses: [course_schema],
-   language: [language_schema],
+   languages: [language_schema],
 
 });
+
+module.exports = mongoose.model('Candidate', candidate_schema);
