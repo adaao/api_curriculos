@@ -11,6 +11,10 @@ router.post('/', [
    validateCandidateEmail('email')
 ], candidateController.createCandidate);
 
-//router.get('/findByEmail')
+router.get('/listCandidates', candidateController.listCandidates);
+
+router.get('/findByEmail', [
+   validateCandidateEmail('email')
+], candidateController.findCandidateByEmail);
 
 module.exports = router;

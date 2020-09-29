@@ -17,7 +17,8 @@ exports.deleteCandidate = async (id) => {
 }
 
 exports.findByEmail = async (email) => {
-   const candidate = await Candidate.findOne({ email: email })
+   const candidate = await Candidate.findOne({ email: email }, '-_id');
+   return candidate;
 };
 
 exports.findByCourse = async (course) =>{
@@ -28,3 +29,7 @@ exports.findByLanguage = async (language) => {
    await Candidate.find({ language });
 };
 
+exports.listCandidates = async () => {
+   const res = await Candidate.find({}, '-_id');
+   return res;
+}
