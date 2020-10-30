@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { countDocuments } = require('../models/candidate');
 const Candidate = mongoose.model('Candidate');
 
 exports.createCandidate = async data => {
@@ -13,7 +14,8 @@ exports.updateCandidate = async (id, data) => {
 }
 
 exports.deleteCandidate = async (id) => {
-   await Candidate.findByIdAndDelete(id);
+   const data = await Candidate.findByIdAndDelete(id);
+   return data;
 }
 
 exports.findByEmail = async (email) => {
@@ -21,8 +23,9 @@ exports.findByEmail = async (email) => {
    return candidate;
 };
 
-exports.findByCourse = async (course) =>{
-   await Candidate.find({ course });
+exports.findByCourse = async (course) => {
+   const candidates = await Candidate.find({ course : course }, '-_id');
+   return candidates;
 };
 
 exports.findByLanguage = async (language) => {
