@@ -7,18 +7,19 @@ exports.createCandidate = async(req, res) => {
    if(errors.length > 0){
       return res.status(400).send({ message: errors });
    }
-
+   console.log('received data:');
+   console.log(req.body);
    try{
       await repository.createCandidate({
          name : req.body.name,
          phone_number : req.body.phone_number,
          email : req.body.email,
          profile : req.body.profile,
-         empolyment_history : req.body.empolyment_history,
+         employment_history : req.body.employment_history,
          education : req.body.education,
-         websites_and_social_links : req.body.websites_and_social_links,
+         //websites_and_social_links : req.body.websites_and_social_links,
          courses : req.body.courses,
-         languages : req.body.languages,
+         //languages : req.body.languages,
       });
       res.status(201).send({message: 'Currículo registrado!'});
    }catch(e){
